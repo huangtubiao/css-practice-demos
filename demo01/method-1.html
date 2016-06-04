@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /**
+         * They call him the James Dean of sticky footers, the Sexy Kind, the Genghis Khan footer.
+         * Clean, modern, simple, no hacks needed. Works for IE8+, Chrome, Firefox, Opera.
+         * Does not(!) require any “wrapper” elements because it’s being pushed down by the flexible body height.
+         * 
+         */
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            margin: 0 0 100px; /* bottom = footer height */
+            padding: 25px;
+        }
+
+        footer {
+            background-color: orange;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 100px;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav></nav>
+    <article>
+        <h1>James Dean CSS Sticky Footer</h1>
+        <p>
+            Now that we know who you are, I know who I am. I'm not a mistake! It all makes sense! In a comic, you know how you can tell who the arch-villain's going to be? He's the exact opposite of the hero. And most times they're friends, like you and me! I should've known way back when... You know why, David? Because of the kids. They called me Mr Glass.
+        </p>
+    </article>
+    <footer></footer>
+</body>
+</html>
