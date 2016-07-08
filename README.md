@@ -3,9 +3,9 @@ a collection of simple demos of CSS practice
 
 ## Sticky Footer
 
-## holy-grail-layout
+## Holy-Grail-Layout
 
-## css-modules
+## CSS-Modules
 
 ### Demo01: 局部作用域
 
@@ -48,7 +48,7 @@ App.css 也会同时被编译。
 }
 ```
 
-这样一来，这个类名就变成独一无二了，只对App组件有效。CSS Modules提供各种插件(https://github.com/css-modules/css-modules/blob/master/docs/get-started.md)，支持不同的构建工具。本文使用的是Webpack的css-loader插件(https://github.com/webpack/css-loader#css-modules)，因为它对CSS Modules的支持最好，而且很容易使用。顺便说一下，如果你想学Webpack，可以阅读我的教程[Webpack-Demos](https://github.com/ruanyf/webpack-demos)。
+这样一来，这个类名就变成独一无二了，只对App组件有效。CSS Modules提供各种[插件](https://github.com/css-modules/css-modules/blob/master/docs/get-started.md)，支持不同的构建工具。本文使用的是Webpack的[css-loader插件](https://github.com/webpack/css-loader#css-modules)，因为它对CSS Modules的支持最好，而且很容易使用。顺便说一下，如果你想学Webpack，可以阅读我的教程[Webpack-Demos](https://github.com/ruanyf/webpack-demos)。
 下面是这个示例的webpack.config.js。
 
 ```javascript
