@@ -85,3 +85,53 @@ $ npm run demo01
 ```
 
 打开 http://localhost:8080， 可以看到结果，h1标题显示红色。
+
+### Demo02: 全局作用域
+
+CSS Modules 允许使用:global(.className)的语法，声明一个全局规则。凡是这样声明的class，都不会被编译成哈希字符串。App.css加入一个全局class。
+
+```css
+.title {
+  color: red;
+}
+
+:global(.title) {
+  color: green;
+}
+```
+
+App.js使用普通的class的写法，就会引用全局class。
+
+```javascript
+import React from 'react';
+import styles from './App.css';
+
+export default () => {
+  return (
+    <h1 className="title">
+      Hello World
+    </h1>
+  );
+};
+```
+
+运行这个示例。
+
+```bash
+$ npm run demo02
+```
+
+打开 http://localhost:8080，应该会看到h1标题显示为绿色。
+
+CSS Modules还提供一种显示的局部作用域语法:local(.className)，等同于.className，所以上面的App.css也可以写成下面这样。
+
+```css
+:local(.title) {
+  color: red;
+}
+
+:global(.title) {
+  color: green;
+}
+```
+
