@@ -135,3 +135,8 @@ CSS Modules还提供一种显示的局部作用域语法:local(.className)，等
 }
 ```
 
+### Demo03 定制哈希类名
+
+css-loader默认的哈希算法是[hash:base64]，这会将.title编译成._3zyde4|1yATCOkgn-DBWEL这样的字符串。
+webpack.config.js里面可以定制哈希字符串的格式。
+
