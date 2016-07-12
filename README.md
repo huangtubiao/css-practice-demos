@@ -140,3 +140,73 @@ CSS Modules还提供一种显示的局部作用域语法:local(.className)，等
 css-loader默认的哈希算法是[hash:base64]，这会将.title编译成._3zyde4|1yATCOkgn-DBWEL这样的字符串。
 webpack.config.js里面可以定制哈希字符串的格式。
 
+```javascript
+module: {
+  loaders: [
+    // ...
+    {
+      test: /\.css$/,
+      loader: "style-loader!css-loader?modules&localIdentName=[path][name]---[local]---[hash:base64:5]"
+    },
+  ]
+}
+```
+
+运行这个示例
+
+```bash
+$ npm run demo03
+```
+
+你会发现.title被编译成了demo03-components-App---title---GpMto
+
+### Demo04 Class的组合
+
+在CSSModule中，一个选择器可以继承另一个选择器的规划，这称为“组合”（“composition”）。
+在App.css中，让.title继承.className。
+
+```css
+.className {
+  background-color: blue;
+}
+
+.title {
+  composes: className;
+  color: red;
+}
+```
+
+App.js不用修改。
+
+```javascript
+import React from 'react';
+import style from './App.css';
+
+export default () => {
+  return (
+    <h1 className={style.title}>
+      Hello World
+    </h1>
+  );
+};
+```
+
+运行这个示例。
+
+```bash
+$ npm run demo04
+```
+
+你应该看到红色的h1在蓝色的背景上。App.css编译成下面的代码。
+
+```css
+._2DHwuiHWMnKTOYG45T0x34 {
+  color: red;
+}
+
+._10B-buq6_BEOTOl9urIjf8 {
+  background-color: blue;
+}
+```
+
+相应地，h1的class也会编译成`<h1 class="_2DHwuiHWMnKTOYG45T0x34 _10B-buq6_BEOTOl9urIjf8">`,
