@@ -210,3 +210,31 @@ $ npm run demo04
 ```
 
 相应地，h1的class也会编译成`<h1 class="_2DHwuiHWMnKTOYG45T0x34 _10B-buq6_BEOTOl9urIjf8">`,
+
+### 输入其他模块
+
+选择器也可以继承其他CSS文件里面的规则。
+
+another.css
+```css
+.className {
+  background-color: blue;
+}
+```
+
+App.css可以继承another.css里面的规则。
+```css
+.title {
+  composes: className from './another.css';
+  color: red;
+}
+```
+
+Run the demo.
+
+```bash
+$ npm run demo05
+```
+
+会看到蓝色的背景上有一个红色的h1。
+
