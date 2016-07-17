@@ -238,3 +238,73 @@ $ npm run demo05
 
 会看到蓝色的背景上有一个红色的h1。
 
+### Demo06 输入变量
+
+CSS Module 支持使用变量，不过需要安装PostCSS和post-modules-values。
+
+```bash
+$ npm install --save postcss-loader postcss-modules-values
+```
+
+把post-loader加入webpack-config.js。
+
+```javascript
+var values = require('postcss-modules-values');
+
+module.exports = {
+  entry: __dirname + '/index.js',
+  output: {
+    publicPath: '/',
+    filename: './bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel',
+        query: {
+          presets: ['es2015', 'stage-0', 'react']
+        }
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader?modules!postcss-loader"
+      },
+    ]
+  },
+  postcss: [
+    values
+  ]
+};
+```
+
+接着在color.css里面定义变量。
+
+```css
+@value blue: #0c77f8;
+@value red: #ff0000;
+@value green: #aaf200;
+```
+
+Then import them into [`App.css`](https://github.com/ruanyf/css-modules-demos/tree/master/demo06/components).
+
+```css
+@value colors: "./colors.css";
+@value blue, red, green from colors;
+
+.title {
+  color: red;
+  background-color: blue;
+}
+```
+
+运行这个示例。
+
+```bash
+$ npm run demo06
+```
+
+## License
+
+MIT
